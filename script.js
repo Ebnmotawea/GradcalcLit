@@ -38,11 +38,23 @@ function hideGoBackButton() {
 
 let accessedFromSemester2Direct = false; // Flag to track how we accessed semester 2
 
+function showStartPage() {
+    document.getElementById('start').style.display = 'block';
+    showHomeImage();
+    hideGoBackButton();
+}
+
+function showPathSelectionPage() {
+    document.getElementById('pathSelection').style.display = 'block';
+    hideGoBackButton();
+    showGoBackButton(showStartPage);
+}
+
 // Show First Semester Section
 document.getElementById('firstSemester').addEventListener('click', function () {
     hideHomeImage(); // Hide image when navigating to the first semester
     document.getElementById('start').style.display = 'none';
-    document.getElementById('pathSelection').style.display = 'block';
+    showPathSelectionPage();
     sessionStorage.setItem('semester', 'first');
 });
 
@@ -51,7 +63,7 @@ document.getElementById('secondSemester').addEventListener('click', function () 
     hideHomeImage(); // Hide image when navigating to the second semester
     accessedFromSemester2Direct = true; // Direct access
     document.getElementById('start').style.display = 'none';
-    document.getElementById('pathSelection').style.display = 'block';
+    showPathSelectionPage();
     sessionStorage.setItem('semester', 'second');
 });
 
@@ -64,6 +76,7 @@ document.getElementById('sciencePath').addEventListener('click', function () {
     } else if (semester === 'second') {
         document.getElementById('semester2Science').style.display = 'block';
     }
+    showGoBackButton(showPathSelectionPage);
 });
 
 // Show Literary Path
@@ -75,6 +88,7 @@ document.getElementById('literaryPath').addEventListener('click', function () {
     } else if (semester === 'second') {
         document.getElementById('semester2Literary').style.display = 'block';
     }
+    showGoBackButton(showPathSelectionPage);
 });
 
 // Calculate First Semester Science Grades
@@ -167,13 +181,7 @@ document.getElementById('predictFinalScience').addEventListener('click', functio
     showGoBackButton(() => {
         document.getElementById('semester2Science').style.display = 'none';
         document.getElementById('semester1Science').style.display = 'block';
-
-        // Update Go Back button for returning to the main page
-        showGoBackButton(() => {
-            document.getElementById('semester1Science').style.display = 'none';
-            document.getElementById('start').style.display = 'block';
-            hideGoBackButton();
-        });
+        showGoBackButton(showPathSelectionPage);
     });
 });
 
@@ -201,13 +209,7 @@ document.getElementById('predictFinalLiterary').addEventListener('click', functi
     showGoBackButton(() => {
         document.getElementById('semester2Literary').style.display = 'none';
         document.getElementById('semester1Literary').style.display = 'block';
-
-        // Update Go Back button for returning to the main page
-        showGoBackButton(() => {
-            document.getElementById('semester1Literary').style.display = 'none';
-            document.getElementById('start').style.display = 'block';
-            hideGoBackButton();
-        });
+        showGoBackButton(showPathSelectionPage);
     });
 });
 

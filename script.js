@@ -40,14 +40,28 @@ let accessedFromSemester2Direct = false; // Flag to track how we accessed semest
 
 function showStartPage() {
     document.getElementById('start').style.display = 'block';
+    hideAllSections();
     showHomeImage();
     hideGoBackButton();
 }
 
 function showPathSelectionPage() {
+    hideAllSections();
     document.getElementById('pathSelection').style.display = 'block';
-    hideGoBackButton();
     showGoBackButton(showStartPage);
+}
+
+function hideAllSections() {
+    const sections = [
+        'semester1Science',
+        'semester1Literary',
+        'semester2Science',
+        'semester2Literary',
+        'pathSelection'
+    ];
+    sections.forEach(id => {
+        document.getElementById(id).style.display = 'none';
+    });
 }
 
 // Show First Semester Section
@@ -69,7 +83,7 @@ document.getElementById('secondSemester').addEventListener('click', function () 
 
 // Show Science Path
 document.getElementById('sciencePath').addEventListener('click', function () {
-    document.getElementById('pathSelection').style.display = 'none';
+    hideAllSections();
     const semester = sessionStorage.getItem('semester');
     if (semester === 'first') {
         document.getElementById('semester1Science').style.display = 'block';
@@ -81,7 +95,7 @@ document.getElementById('sciencePath').addEventListener('click', function () {
 
 // Show Literary Path
 document.getElementById('literaryPath').addEventListener('click', function () {
-    document.getElementById('pathSelection').style.display = 'none';
+    hideAllSections();
     const semester = sessionStorage.getItem('semester');
     if (semester === 'first') {
         document.getElementById('semester1Literary').style.display = 'block';

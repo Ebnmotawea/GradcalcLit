@@ -24,6 +24,20 @@ function resetSecondSemester() {
     document.getElementById('semester2Result').style.display = 'none'; // Hide results
 }
 
+// Hide all sections
+function hideAllSections() {
+    const sections = [
+        'semester1Science',
+        'semester1Literary',
+        'semester2Science',
+        'semester2Literary',
+        'pathSelection'
+    ];
+    sections.forEach(id => {
+        document.getElementById(id).style.display = 'none';
+    });
+}
+
 // Navigation logic for Go Backward button
 function showGoBackButton(callback) {
     goBackButton.style.display = 'block';
@@ -39,8 +53,8 @@ function hideGoBackButton() {
 let accessedFromSemester2Direct = false; // Flag to track how we accessed semester 2
 
 function showStartPage() {
-    document.getElementById('start').style.display = 'block';
     hideAllSections();
+    document.getElementById('start').style.display = 'block';
     showHomeImage();
     hideGoBackButton();
 }
@@ -49,19 +63,6 @@ function showPathSelectionPage() {
     hideAllSections();
     document.getElementById('pathSelection').style.display = 'block';
     showGoBackButton(showStartPage);
-}
-
-function hideAllSections() {
-    const sections = [
-        'semester1Science',
-        'semester1Literary',
-        'semester2Science',
-        'semester2Literary',
-        'pathSelection'
-    ];
-    sections.forEach(id => {
-        document.getElementById(id).style.display = 'none';
-    });
 }
 
 // Show First Semester Section

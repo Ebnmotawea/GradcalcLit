@@ -76,8 +76,6 @@ document.getElementById('firstSemester').addEventListener('click', function () {
     document.getElementById('start').style.display = 'none';
     showPathSelectionPage();
     sessionStorage.setItem('semester', 'first');
-    document.getElementById('semester1PercentageContainerScience').style.display = 'none';
-    document.getElementById('semester1PercentageContainerLiterary').style.display = 'none';
 });
 
 // Show Second Semester Section Directly
@@ -95,9 +93,9 @@ document.getElementById('sciencePath').addEventListener('click', function () {
     const semester = sessionStorage.getItem('semester');
     if (semester === 'first') {
         document.getElementById('semester1Science').style.display = 'block';
-        document.getElementById('semester1PercentageContainerScience').style.display = 'none';
     } else if (semester === 'second') {
         document.getElementById('semester2Science').style.display = 'block';
+        // Show the input box for the first semester percentage
         document.getElementById('semester1PercentageContainerScience').style.display = 'block';
     }
     showGoBackButton(showPathSelectionPage);
@@ -109,9 +107,9 @@ document.getElementById('literaryPath').addEventListener('click', function () {
     const semester = sessionStorage.getItem('semester');
     if (semester === 'first') {
         document.getElementById('semester1Literary').style.display = 'block';
-        document.getElementById('semester1PercentageContainerLiterary').style.display = 'none';
     } else if (semester === 'second') {
         document.getElementById('semester2Literary').style.display = 'block';
+        // Show the input box for the first semester percentage
         document.getElementById('semester1PercentageContainerLiterary').style.display = 'block';
     }
     showGoBackButton(showPathSelectionPage);

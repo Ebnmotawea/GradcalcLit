@@ -1,3 +1,4 @@
+// Show the home image
 function showHomeImage() {
     const homeImage = document.getElementById('homeImage');
     if (homeImage) {
@@ -5,6 +6,7 @@ function showHomeImage() {
     }
 }
 
+// Hide the home image
 function hideHomeImage() {
     const homeImage = document.getElementById('homeImage');
     if (homeImage) {
@@ -12,8 +14,9 @@ function hideHomeImage() {
     }
 }
 
-// Select the Go Backward button
+// Select the Go Back button
 const goBackButton = document.getElementById('goBack');
+
 // Reset Second Semester Table and State
 function resetSecondSemester() {
     const gradeInputs = document.querySelectorAll('.gradeInput');
@@ -38,13 +41,13 @@ function hideAllSections() {
     });
 }
 
-// Navigation logic for Go Backward button
+// Show Go Back button and set its callback
 function showGoBackButton(callback) {
     goBackButton.style.display = 'block';
     goBackButton.onclick = callback;
 }
 
-// Hide the Go Backward button
+// Hide the Go Back button
 function hideGoBackButton() {
     goBackButton.style.display = 'none';
     goBackButton.onclick = null;
@@ -52,6 +55,7 @@ function hideGoBackButton() {
 
 let accessedFromSemester2Direct = false; // Flag to track how we accessed semester 2
 
+// Show Start Page and hide all other sections
 function showStartPage() {
     hideAllSections();
     document.getElementById('start').style.display = 'block';
@@ -59,6 +63,7 @@ function showStartPage() {
     hideGoBackButton();
 }
 
+// Show Path Selection Page and hide all other sections
 function showPathSelectionPage() {
     hideAllSections();
     document.getElementById('pathSelection').style.display = 'block';

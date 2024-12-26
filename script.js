@@ -331,14 +331,15 @@ document.getElementById('calculateSemester2Literary').addEventListener('click', 
         const isPrediction = accessedFromSemester2Direct ? "" : "المتوقعة ";
         result.textContent = `النسبة الإجمالية ${isPrediction}للمجموع النهائي هي: ${finalPercentage}%`;
     }
+// Night mode toggle functionality
+    const nightModeToggle = document.getElementById('toggle--daynight');
+    nightModeToggle.addEventListener('change', function () {
+        if (this.checked) {
+            document.body.classList.add('night-mode');
+        } else {
+            document.body.classList.remove('night-mode');
+        }
 });
 
-// Night mode toggle functionality
-const nightModeToggle = document.getElementById('toggle--daynight');
-nightModeToggle.addEventListener('change', function () {
-    if (this.checked) {
-        document.body.classList.add('night-mode');
-    } else {
-        document.body.classList.remove('night-mode');
-    }
-});
+
+

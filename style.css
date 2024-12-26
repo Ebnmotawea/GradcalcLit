@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'Sakkal Majalla';
-    src: url('fonts/SakkalMajalla.ttf') format('truetype'); /* Adjust path if needed */
+  font-family: 'Sakkal Majalla';
+  src: url('fonts/SakkalMajalla.ttf') format('truetype'); /* Adjust path if needed */
 }
 
 body {
@@ -10,12 +10,11 @@ body {
   padding: 0;
   background-color: #f9f9f9;
   font-size: 18px; /* Base font size for body text */
-  transition: background-color 0.5s ease;
 }
 
-body.night-mode {
-  background-color: #2c2c2c;
-  color: #f9f9f9;
+body.dark-mode {
+  background-color: #1c1c1c;
+  color: #e3e3e3;
 }
 
 h1 {
@@ -32,18 +31,17 @@ p {
 }
 
 .container {
-    max-width: 600px; /* Ensure the container doesn't stretch too much */
-    margin: 0 auto;   /* Center the container */
-    padding: 20px;    /* Add padding around the content */
-    background-color: white; /* Container background color */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    border-radius: 8px; /* Rounded corners */
-    transition: background-color 0.5s ease, color 0.5s ease;
+  max-width: 600px; /* Ensure the container doesn't stretch too much */
+  margin: 0 auto;   /* Center the container */
+  padding: 20px;    /* Add padding around the content */
+  background-color: white; /* Container background color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border-radius: 8px; /* Rounded corners */
 }
 
-body.night-mode .container {
-  background-color: #444;
-  color: #f9f9f9;
+body.dark-mode .container {
+  background-color: #333;
+  color: #e3e3e3;
 }
 
 button {
@@ -57,20 +55,15 @@ button {
   font-weight: bold; /* Make button text bold */
   font-size: 20px; /* Increased font size for button text */
   font-family: 'Sakkal Majalla', Arial, sans-serif; /* Set font for button text */
-  transition: background-color 0.5s ease;
 }
 
 button:hover {
   background-color: #5c1028; /* Darker shade on hover */
 }
 
-body.night-mode button {
-  background-color: #555;
-  color: #fff;
-}
-
-body.night-mode button:hover {
-  background-color: #333;
+body.dark-mode button {
+  background-color: #444;
+  color: #e3e3e3;
 }
 
 #goBack {
@@ -88,20 +81,15 @@ body.night-mode button:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Smooth shadow */
   font-weight: bold; /* Make Go Back button text bold */
   font-family: 'Sakkal Majalla', Arial, sans-serif; /* Set font for the Go Back button */
-  transition: background-color 0.5s ease;
 }
 
 #goBack:hover {
   background-color: #f2f2f2; /* Light gray on hover */
 }
 
-body.night-mode #goBack {
-  background-color: #333;
-  color: #fff;
-}
-
-body.night-mode #goBack:hover {
+body.dark-mode #goBack {
   background-color: #444;
+  color: #e3e3e3;
 }
 
 table {
@@ -109,11 +97,10 @@ table {
   border-collapse: collapse; /* Remove double borders */
   width: 100%;
   border: 2px solid #8A1538; /* Add border around the table */
-  transition: border-color 0.5s ease;
 }
 
-body.night-mode table {
-  border-color: #666;
+body.dark-mode table {
+  border: 2px solid #e3e3e3;
 }
 
 th, td {
@@ -121,20 +108,17 @@ th, td {
   padding: 10px;
   text-align: right;
   border: 1px solid #8A1538; /* Add border around each cell */
-  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-body.night-mode th, body.night-mode td {
-  background-color: #555;
-  color: #f9f9f9;
-  border-color: #666;
+body.dark-mode th, body.dark-mode td {
+  border: 1px solid #e3e3e3;
 }
 
 th {
   background-color: #f4f4f4; /* Light background for headers */
 }
 
-body.night-mode th {
+body.dark-mode th {
   background-color: #444;
 }
 
@@ -143,37 +127,27 @@ body.night-mode th {
   font-size: 18px; /* Increased font size for warning text */
   margin-top: 10px;
   font-family: 'Sakkal Majalla', Arial, sans-serif; /* Apply font to warning text */
-  transition: color 0.5s ease;
-}
-
-body.night-mode .warning {
-  color: #f9f9f9;
 }
 
 .result {
   font-size: 22px; /* Increased font size for result text */
   margin-top: 20px;
   font-family: 'Sakkal Majalla', Arial, sans-serif; /* Apply font to result text */
-  transition: color 0.5s ease;
-}
-
-body.night-mode .result {
-  color: #f9f9f9;
 }
 
 #homeImage {
-    width: 25vw;
-    aspect-ratio: 1 / 1; /* Ensures the height is equal to the width */
-    object-fit: contain;
-    display: block;
-    margin: 0 auto;
+  width: 25vw;
+  aspect-ratio: 1 / 1; /* Ensures the height is equal to the width */
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
 
-/* Dark mode toggle button styles */
+/* Dark mode toggle styles */
 .toggle {
   display: block;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 40px;
   user-select: none;
 }
 
@@ -186,7 +160,25 @@ body.night-mode .result {
   margin: 0 auto;
   font-size: 1.4em;
   transition: all 350ms ease-in;
+}
+
+.toggle--btn:hover {
   cursor: pointer;
+}
+
+.toggle--btn,
+.toggle--checkbox,
+.toggle--feature {
+  transition: all 250ms ease-in;
+}
+
+.toggle--btn:before,
+.toggle--btn:after {
+  content: '';
+  display: block;
+}
+
+.toggle--daynight .toggle--btn {
   position: relative;
   height: 70px;
   width: 125px;
@@ -195,5 +187,21 @@ body.night-mode .result {
   background-color: #3c4145;
 }
 
-.toggle--btn:before {
-  content
+.toggle--daynight .toggle--btn:before {
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 5px solid #e3e3c7;
+}
+
+.toggle--daynight .toggle--btn:after {
+  position: absolute;
+  top: 62%;
+  left: 56px;
+  z-index: 10;
+  width: 11px;
+  height
